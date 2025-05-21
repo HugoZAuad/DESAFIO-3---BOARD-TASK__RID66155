@@ -17,14 +17,14 @@
     <main>
       <h1>Board de Tarefas</h1>
       <section id="create-todo-section">
-        <form id="create-todo-form">
-            <input type="text" id="tarefa" class="input-description" placeholder="Nome da tarefa" name="description" aria-label="Nome da tarefa">
+        <form id="create-todo-form" aria-label="Formulário para criar nova tarefa">
+            <input type="text" id="tarefa" class="input-description" placeholder="Nome da tarefa" name="description" aria-label="Nome da tarefa" required>
             <input type="text" id="Etiqueta" class="input-description" placeholder="Etiqueta" name="label" aria-label="Nome da etiqueta">
             <button type="submit" aria-label="Adicionar tarefa" class="add-task-btn">+</button>
         </form>
       </section>
-      <section class="todo-list-section">
-        <div id="completed-counter">Tarefas concluídas: 0</div>
+      <section class="todo-list-section" aria-label="Lista de tarefas">
+        <div id="completed-counter" aria-label="Concluidos">Tarefas concluídas: 0</div>
         <ul id="todo-list"></ul>
       </section>
     </main>

@@ -12,6 +12,20 @@
     counter.textContent = `Tarefas concluídas: ${completedCount}`;
   };
 
+  // Função que salva o array de tarefas no localStorage
+  const saveTasksToLocalStorage = () => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  };
+
+  // Função que carrega as tarefas do localStorage para o array "tasks"
+  const loadTasksFromLocalStorage = () => {
+    const storedTasks = localStorage.getItem("tasks");
+    if (storedTasks) {
+      const parsedTasks = JSON.parse(storedTasks);
+      parsedTasks.forEach(task => tasks.push(task));
+    }
+  };
+
   // Função para criar elementos com atributos e classes
   const createElement = (tag, options = {}) => {
     const element = document.createElement(tag);
@@ -120,6 +134,8 @@
 
       buttonElement.textContent = "Concluído";
     }
+    // Salva as tarefas atualizadas no localStorage
+    saveTasksToLocalStorage();
   };
 
   // Função que cria uma nova tarefa quando o usuário envia o formulário
@@ -134,6 +150,9 @@
     createTaskListItem(newTaskData);
     updateCompletedCounter();
 
+    // Salva as tarefas atualizadas no localStorage
+    saveTasksToLocalStorage();
+
     event.target.reset();
   };
 
@@ -141,6 +160,9 @@
   window.onload = () => {
     const form = document.getElementById("create-todo-form");
     form.addEventListener("submit", createTask);
+
+    // Carrega as tarefas do localStorage
+    loadTasksFromLocalStorage();
 
     // Evento delegado para o botão de concluir tarefa
     const todoList = document.getElementById("todo-list");
