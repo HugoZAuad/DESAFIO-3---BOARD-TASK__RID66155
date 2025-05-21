@@ -1,20 +1,71 @@
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f9ff;
+
   margin: 0;
   padding: 0;
   font-family: "Rubik", sans-serif;
 }
 
+main {
+  background-color: #ffffff;
+  padding: 1.3rem 1.7rem;
+  border-radius: 0.7rem;
+  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0rem .27rem .83rem;
+}
+
+main h1 {
+  color: #11175e;
+}
+
 .task-text {
   font-size: 1rem;
-  margin-right: 10px;
+  text-decoration: none;
+}
+
+#todo-list ol{
+  margin-left: -2.4rem;
+  margin-top: .6rem;
+  border: 0.005rem solid #eeeeee;
+  border-radius: 0.8rem;
+  align-items: center;
+  justify-content: center;  
+}
+
+.input-description {
+  background: transparent;
+  border: 0.005rem solid #eeeeee;
+  padding: 0.8rem 1.3rem;
+  border-radius: 0.8rem;
+}
+
+.add-task-btn{
+  background-color: #2d70fd;
+  color: #ffffff;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: .5rem;
+  margin-left: .6rem;
+  cursor: pointer;
 }
 
 .task-label {
   font-size: 0.9rem;
-  color: #444;
-  margin-top: 4px;
-  margin-bottom: 6px;
+  color: #B1BACB;
+  border: 0.005rem solid #eeeeee;
+  margin-top: .8rem;
+  padding: .8rem .8rem .8rem .4rem;
+  border-radius: 0.8rem;
+  max-width: 10vw;
   font-style: italic;
+  overflow: hidden;
 }
 
 .task-text.completed {
@@ -23,32 +74,37 @@ body {
 }
 
 .complete-btn {
+  position: relative;
+  bottom: 2rem;
+
+  width: 30%;
+  height: 2.5rem;
   border: none;
-  padding: 5px 10px;
+  margin: 0 0 1rem 5rem;
   font-size: 0.9rem;
   cursor: pointer;
-  border-radius: 4px;
+  background-color: #2d70fd;
+  color: #ffffff;
+  border-radius: .4rem;
   transition: background-color 0.3s ease;
 }
 
 .image-placeholder {
-  width: 20px;
-  height: 20px;
-  margin-left: 10px;
+  width: .8rem;
+  height: .8rem;
+  margin-left: .5rem;
   display: inline-block;
-  /* Placeholder style for the SVG image to be added later */
   background-color: transparent;
 }
 
 #completed-counter {
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: .8rem;
   font-size: 1.1rem;
 }
 
 .task-created-at {
   font-size: 0.8rem;
-  color: #666;
-  margin-left: 8px;
+  color: #B1BACB;
   font-style: italic;
 }
