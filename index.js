@@ -44,7 +44,7 @@
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
+    return `${day}/${month}/${year}`;
   };
 
   // Função que cria um item da lista de tarefas para mostrar na tela
@@ -156,7 +156,7 @@ const toggleTaskCompletion = (taskId, taskTextElement, buttonElement) => {
   const createTask = (event) => {
     event.preventDefault();
     const newTaskData = getNewTaskData(event);
-    if (!newTaskData.description) return; // Ignore empty descriptions
+    if (!newTaskData.description) return; 
     newTaskData.createdAt = getCurrentDate();
     newTaskData.checked = false;
 
@@ -187,7 +187,6 @@ const toggleTaskCompletion = (taskId, taskTextElement, buttonElement) => {
         const taskText = listItem.querySelector(".task-text");
         toggleTaskCompletion(listItem.id, taskText, button);
       } else if (event.target.classList.contains("delete-btn")) {
-        // Botão de excluir tarefa clicado
         const button = event.target;
         const listItem = button.parentElement;
         deleteTask(listItem.id);
